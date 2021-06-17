@@ -8,7 +8,7 @@ class SpicesController < ApplicationController
     #Post
     def create
         spice = Spice.create(spice_params)
-        render json: spice, status: :create
+        render json: spice, status: :created
     end
     
     #PATCH /spices/:id
@@ -16,7 +16,7 @@ class SpicesController < ApplicationController
         spice = Spice.find_by(id: params[:id])
         if spice 
             spice.update(spice_params)
-            render json: bird
+            render json: spice
         else
             render json: { error: "Spice not found" }, status: :not_found
         end
